@@ -23,13 +23,13 @@ abstract class Bootstrap {
             //print_r($lista);
             //die();
             
-            if(count($lista) == 3){
-                $lista = list($void, $module, $controller) = explode('/', $url);
-                $controller = $lista[2];
-            }else if (count($lista) == 4){
-                $lista = list($void, $module, $controller, $action) = explode('/', $url);
-                $controller =  $lista[2];
-                $action =  $lista[3];
+            if(count($lista) == 5){
+                $lista = list($void, $projetos, $dashboards, $atual, $controller) = explode('/', $url);
+                $controller = $lista[4];
+            }else if (count($lista) == 6){
+                $lista = list($void, $projetos, $dashboards, $atual, $controller, $action) = explode('/', $url);
+                $controller =  $lista[4];
+                $action =  $lista[5];
             }
 
             if($controller == ''){
