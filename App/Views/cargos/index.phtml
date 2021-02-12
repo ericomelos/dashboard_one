@@ -1,0 +1,98 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+
+      <div class="">
+        <div class="col-md-6" id='divPrincipal'>
+              <div class="card" >
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title" style='text-align:center'>Cadastro de Cargos</h4>
+            
+                </div>
+                <div class="card-body">
+                  <form method='POST' id='form'>
+                    <div class="row">
+
+                      <div class="col-md-10">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">Cargo</label>
+                          <input type="text" name='descricao' id='descricao' class="form-control" required>
+                        </div>
+                      </div>                    
+                    </div>
+                <div class="row"> 
+                </div>
+                    
+                        <button type="submit" class="btn btn-primary pull-right">Salvar</button>
+               
+                  </form>
+                </div>
+                
+              </div>
+        </div>        
+    </div>
+
+    <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Tabela de Cargos</h4>
+                  
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <tr><th>
+                          ID
+                        </th>
+                        <th>
+                          Cargos
+                        </th>
+                        
+                      </tr></thead>
+                      <tbody>
+                       
+                        
+                        
+                                <tr>
+                                  <td> 1</td>
+                                  <td> Frentista</td>
+                                </tr>
+                              
+                           
+                        
+                        
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    <script>
+        
+
+        $("form").on("submit", function(e) {
+            //var res = $("#form").valid();
+            e.preventDefault(); 
+            var form = $('#form');
+            $.ajax({
+                type: "POST",
+                url: 'cargos/salvar',
+                data: form.serialize(),
+                beforeSend : function(){
+                    $("#resultado").html('Enviando .. ');
+                }, 
+                success: function(res){
+                  $("#resultado").html(res);
+
+                },
+                done: function(res){
+                    
+                }
+            });
+        });
+        
+    </script>

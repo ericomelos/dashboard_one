@@ -1,0 +1,104 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+
+      <div class="row">
+        <div class="col-md-4" id='divPrincipal'>
+              <div class="card" >
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title" style='text-align:center'>Cadastro do Usuário</h4>
+            
+                </div>
+                <div class="card-body">
+                  <form method='POST' id='form'>
+                    <div class="row">
+
+                      <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">Nome</label>
+                          <input type="text" name='nome' id='nome' class="form-control" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">Sobrenome</label>
+                          <input type="text" name='sobrenome' id='sobrenome' class="form-control" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">Email</label>
+                          <input type="email" name='email' id='email'  class="form-control" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">CPF</label>
+                          <input type="text" name='cpf' id='cpf' maxlength='11' class="form-control" required>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">Login</label>
+                          <input type="text" name='login' id='login' class="form-control" required>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">Senha</label>
+                          <input type="password" name='senha' id='senha' class="form-control" required>
+                        </div>
+                      </div>
+
+                    </div>
+                   
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      
+                    </div>
+
+                    
+                    
+                        <button type="submit" class="btn btn-primary pull-right">Salvar</button>
+                    <div class="clearfix"></div>
+                    
+                  </form>
+                </div>
+                
+              </div>
+        </div>        
+    </div>
+  
+    <script>
+        
+
+        $("form").on("submit", function(e) {
+            //var res = $("#form").valid();
+            e.preventDefault(); 
+            var form = $('#form');
+            $.ajax({
+                type: "POST",
+                url: 'usuarios/salvar',
+                data: form.serialize(),
+                beforeSend : function(){
+                    $("#resultado").html('Enviando .. ');
+                }, 
+                success: function(res){
+                  $("#resultado").html(res);
+
+                },
+                done: function(res){
+                    
+                }
+            });
+        });
+        
+    </script>
+

@@ -1,0 +1,20 @@
+{
+    "name": "erico/arttatoo",
+    "require": {
+        "php":">=7.2",
+        "phpmailer/phpmailer": "~6.1"
+    },
+    "description": "DashboardArt Tattoo",
+    "authors": [
+        {
+            "name": "Erico Melos",
+            "email": "ericomelos@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "IvansWeb\\":"vendor/IvansWeb/",
+            "App\\":"App/"
+        }
+    }
+} 
